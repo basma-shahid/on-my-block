@@ -1,0 +1,28 @@
+.AuthPage{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+}
+
+.AuthPageLeft{
+    background-color: hsl(120, 34%, 82%);
+    grid-column: 1/2;
+}
+
+.AuthPageRight{
+    grid-column: 2/4;
+    margin: auto;
+}
+
+span{
+    display:block;
+    color: red;
+}
+
+span:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+
