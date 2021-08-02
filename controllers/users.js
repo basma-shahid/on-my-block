@@ -1,4 +1,4 @@
-const user = require('../models/user');
+const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
@@ -14,13 +14,15 @@ module.exports ={
 
 async function create(req, res){
     try {
-        const hashedPassword = await bcrypt(req.body.password, SALT_ROUNDS)
-        const user = await User.create({username: req.body.username, email: req.body.email, password: hashedPassword});
+        const hashedPassword = await bcrypt.hash(req.body.password, SALT_ROUNDS)
+        // error above
+        const user = await User.create({user: req.body.name, email: req.body.email, password: hashedPassword});
 
         const token = jwt.sign({user}, process.env.SECRET,{expiresIn:'72h'});
-        res.json(token);
+        res.status(200).json(token);
     } catch (err) {
-        res.status(500).json(err);
+        res.status(400).json(err);
+        console.log('this is the error', err)
     }
 }
 
@@ -33,7 +35,7 @@ async function login(req, res) {
         const token = jwt.sign({user}, process.env.SECRET,{expiresIn:'72h'});
         res.json(token);
 
-    } catch{
-        res.status(500).json('Wrong Credentials');
+    } catch (err) {
+        res.status(400).json('Wrong Credentials');
     }
 }
