@@ -45,10 +45,11 @@ export default class App extends Component {
 
         </Switch>
         : 
-        <div>
-          <AuthPage setUserInState={this.setUserInState} />
-        </div>
+        
+        <AuthPage setUserInState={this.setUserInState} />
         }
+
+        {/* how to set user in state for the whole app */}
       </main>
     )
   }

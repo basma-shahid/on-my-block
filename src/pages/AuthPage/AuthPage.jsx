@@ -31,9 +31,9 @@ export default class AuthPage extends Component {
             <div className="AuthPageRight">
                 {this.state.showLogin 
                 ?
-                <LogInForm />
+                <LogInForm setUserInState={this.props.setUserInState} />
                 : 
-                <SignUpForm />
+                <SignUpForm setUserInState={this.props.setUserInState} />
                 }
             </div>
             
