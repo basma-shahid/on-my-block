@@ -17,6 +17,9 @@ app.get('/*', function(req, res) {
   });
 const port = process.env.PORT || 3001;
 
+
+app.use('/api/users', require('./routes/users'));
+
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`)
 });
