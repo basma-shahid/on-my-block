@@ -29,6 +29,7 @@ export default class AuthPage extends Component {
         
 
             <div className="AuthPageRight">
+                <img src="https://imgur.com/dpre0fk" width="120" height="100"/>
                 {this.state.showLogin 
                 ?
                 <LogInForm setUserInState={this.props.setUserInState} />
