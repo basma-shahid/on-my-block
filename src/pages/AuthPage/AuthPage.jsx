@@ -1,12 +1,44 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import LogInForm from '../../components/LogInForm/LogInForm';
+import SignUpForm from '../../components/SignUpForm/SignUpForm';
+import './AuthPage.css'
 
-export default function AuthPage() {
+export default class AuthPage extends Component {
+
+    state = {
+        showLogin: true
+    }
+
+
+    render(){
     return(
-        <div>
-            This is the Home page/ authorization page
+        <div className="AuthPage">
+            <div className="AuthPageLeft">
+            <h1 className="text" onClick={() => this.setState(
+                { showLogin: !this.state.showLogin }
+                )}>
+            {this.state.showLogin 
+            ? 
+            <>Don't have an account? <span>Register</span></>
+            :
+            <>Have an account? <span>Sign In</span></>
+            }</h1>
+            </div>
+            
+        
 
-            <hr />
+            <div className="AuthPageRight">
+                {this.state.showLogin 
+                ?
+                <LogInForm />
+                : 
+                <SignUpForm />
+                }
+            </div>
+            
+
+            {/* <hr />
             Ater user is signed in: 
             <Link to='/index' >
                 <button>View all events</button>
@@ -14,8 +46,9 @@ export default function AuthPage() {
 
             <Link to='/create' >
                 <button>Create an event</button>
-            </Link>
+            </Link> */}
 
         </div>
     )
+    }
 }
