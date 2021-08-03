@@ -8,8 +8,9 @@ export default class ProfilePage extends React.Component {
   render() {
     return (
       <main>
-        Name: {this.props.user.name} <br/>
-        Email: {this.props.user.email}
+        <h2>Name: {this.props.user.name}</h2> <br/>
+        <h2>Email: {this.props.user.email}</h2>
+        <br/><br/>
         <UserInfo />
         <div></div>
       </main>
