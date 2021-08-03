@@ -1,0 +1,17 @@
+.EventsPage{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+}
+
+.EventsPageLeft{
+    background-color: hsl(120, 34%, 82%);
+    height: 100%;
+    grid-column: 1/2;
+    margin: auto;
+}
+
+.EventsPageRight{
+    grid-column: 2/4;
+    /* margin: auto; */
+}

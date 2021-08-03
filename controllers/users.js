@@ -16,7 +16,7 @@ async function create(req, res){
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, SALT_ROUNDS)
         // error above
-        const user = await User.create({user: req.body.name, email: req.body.email, password: hashedPassword});
+        const user = await User.create({name: req.body.name, email: req.body.email, password: hashedPassword});
 
         const token = jwt.sign({user}, process.env.SECRET,{expiresIn:'72h'});
         res.status(200).json(token);

@@ -14,6 +14,9 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 
 app.use('/api/users', require('./routes/users'));
+// Mount our custom auth middleware to protect routes below it. These routes will have access to the "req.user" variable.
+app.use(require('./config/auth'));
+app.use('/api/events', require('./routes/events'))
 
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
