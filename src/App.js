@@ -28,7 +28,7 @@ export default class App extends Component {
         <Switch>
           
           <Route path='/index' render={(props) => (
-            <EventsPage {...props} />
+            <EventsPage {...props} user={this.state.user} />
           )}  /> 
 
           <Route path='/create' render={(props) => (
