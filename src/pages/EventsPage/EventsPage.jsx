@@ -34,6 +34,10 @@ export default class EventsPage extends Component{
                 <Map lat={this.state.lat} lng={this.state.lng}/>
                 
             </div>
+        <div>
+            This is the events page
+            <Link className="btn" to='/profile'>View Profile</Link>
+        </div>
         </div>
     )
     }
