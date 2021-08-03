@@ -4,7 +4,7 @@ import './Logo.css'
 function Logo() {
   return (
       <div>
-        <img className="logo" src="logo1.svg" />
+        <img className="logo" src="logotext.svg" />
       </div>
   );
   }
