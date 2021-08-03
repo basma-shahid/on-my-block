@@ -4,9 +4,19 @@
     height: 100%;
 }
 
+.text{
+    font-size: 50px;
+    line-height: 60px;
+    text-align: center;
+    margin: 220px;
+}
+
 .AuthPageLeft{
-    background-color: hsl(120, 34%, 82%);
     grid-column: 1/2;
+    background: linear-gradient(-60deg, #97C397, #D7F2BA, #BDE4A8, #9CC69B, #79B4A9, #97C397);
+    background-size: 200%, 200%;
+    position: relative;
+    animation: gradient 5s ease-in-out infinite;
 }
 
 .AuthPageRight{
@@ -15,16 +25,30 @@
 }
 
 span{
-    display:block;
-    color: red;
+    margin: 8px 0;
+    width: 60%;
+    border-radius: 25px;
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 20px;
+    border: none;
+    background-color: black;
+    color: white;
 }
+
 
 span:hover {
-    cursor: pointer;
-    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-
-
-
-
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
