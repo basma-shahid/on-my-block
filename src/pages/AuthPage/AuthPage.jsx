@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import LogInForm from '../../components/LogInForm/LogInForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
+import Logo from '../../components/Logo/Logo';
 import './AuthPage.css'
 
 export default class AuthPage extends Component {
@@ -29,7 +30,7 @@ export default class AuthPage extends Component {
         
 
             <div className="AuthPageRight">
-                <img src="https://imgur.com/dpre0fk" width="120" height="100"/>
+                <Logo />
                 {this.state.showLogin 
                 ?
                 <LogInForm setUserInState={this.props.setUserInState} />
