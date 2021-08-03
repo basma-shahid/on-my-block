@@ -3,6 +3,7 @@ import Map from '../../components/Map/Map';
 import { Link } from 'react-router-dom';
 import { getCurrentLatLng } from '../../services/geolocation';
 import EventForm from '../../components/EventForm/EventForm';
+import UserLogout from '../../components/UserLogout/UserLogout';
 import './EventsPage.css'
 
 export default class EventsPage extends Component{
@@ -25,9 +26,10 @@ export default class EventsPage extends Component{
             
             <div className="EventsPageLeft">
                 
-                Welcome, {this.props.user.name}
-                <EventForm />
-                <Link className="btn" to='/profile'>View Profile</Link>
+                <h1>Welcome, {this.props.user.name}!</h1>
+                <EventForm /><br/>
+                <Link className="btn" to='/profile'>View Profile</Link><br/><br/>
+                <UserLogout />
                 
 
             </div>
