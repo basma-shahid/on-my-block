@@ -7,11 +7,6 @@ const eventSchema = new Schema({
     lat: Number,
     lng: Number,
     time: Date,
-    // this is the time the event was created
-    date: Date,
-    //this is the date for the event if applicable
-    details: String,
-    //this is the detail for the event
     user: { type: Schema.Types.ObjectId, ref: 'User' }
     //this event having one user that created it
 }, {
