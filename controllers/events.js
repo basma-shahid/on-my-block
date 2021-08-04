@@ -17,6 +17,8 @@ async function create(req, res) {
             lng: req.body.lng,
             time: req.body.time,
             user: req.user._id,
+            date: req.body.date,
+            details: req.body.details
 
         });
         console.log(event)
