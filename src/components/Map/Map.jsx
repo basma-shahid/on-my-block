@@ -132,7 +132,7 @@ export default function App() {
         >
           <div>
             <h2>
-              Event Information:
+              Alert
             </h2>
             {/* update marker  */}
             {selected.submitted ? <>
