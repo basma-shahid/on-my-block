@@ -102,12 +102,6 @@ export default function App() {
   if (!isLoaded) return "Loading Maps";
 
   return <div>
-    <h1>
-      Blocks{" "}
-      <span role="img" aria-label="tent">
-        🥰
-      </span>
-    </h1>
 
 
     <Search panTo={panTo} setMarkers={setMarkers} />
@@ -136,7 +130,7 @@ export default function App() {
         >
           <div>
             <h2>
-              Alert
+              Event Information:
             </h2>
             {/* update marker  */}
             {selected.submitted ? <>
