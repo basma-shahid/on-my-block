@@ -2,12 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './UserInfo.css'
 import UserLogout from '../UserLogout/UserLogout';
-import AllEvents from '../AllEvents/AllEvents'
 
 const UserInfo = (props) => {
   return (
       <div>
-       <AllEvents />
+        <Link className="btn" to='/index'>View Past Events</Link>
         <br/><br/>
         <UserLogout />
       </div>
