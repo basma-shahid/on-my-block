@@ -24,9 +24,13 @@
     margin: auto;
 }
 
+.HiddenAuth {
+    display: none;
+}
+
 span{
     margin: 8px 0;
-    width: 60%;
+    width: 100%;
     border-radius: 25px;
     padding: 12px 20px;
     margin: 10px;
@@ -52,3 +56,19 @@ span:hover {
         background-position: 0 50%;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .AuthPageLeft{
+        display: none;
+    }
+
+    .AuthPageRight{
+        grid-column: 1/4;
+    }
+
+    .HiddenAuth{
+        display: inline;
+        grid-column: 1/4;
+    }
+
+  }

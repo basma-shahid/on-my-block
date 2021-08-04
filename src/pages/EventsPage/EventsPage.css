@@ -5,10 +5,9 @@
 }
 
 .EventsPageLeft{
-    background-color: hsl(120, 34%, 82%);
+    background-color: hsl(120, 33%, 77%);
     height: 100%;
     grid-column: 1/2;
-    /* margin: auto; */
 }
 
 .EventsPageRight{
@@ -33,4 +32,9 @@
 
 .btn:hover{
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+.logo-no-text {
+    width: 230px;
+    height: 210px;
 }

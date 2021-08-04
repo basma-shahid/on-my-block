@@ -38,6 +38,18 @@ export default class AuthPage extends Component {
                 <SignUpForm setUserInState={this.props.setUserInState} />
                 }
             </div>
+
+            <div className="HiddenAuth">
+            <h1 onClick={() => this.setState(
+                { showLogin: !this.state.showLogin }
+                )}>
+            {this.state.showLogin 
+            ? 
+            <><h5>Don't have an account?</h5><span>Register</span></>
+            :
+            <><h5>Have an account?</h5> <span>Sign In</span></>
+            }</h1>
+            </div>
             
 
             {/* <hr />
