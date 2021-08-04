@@ -26,6 +26,7 @@ export default class EventsPage extends Component{
             <div className="EventsPageLeft">
 
                 <img alt="logo" className="logo-no-text" src="logo1.svg"/>
+                
                 <h1>Welcome, {this.props.user.name}!</h1>
                 <Link className="btn" to='/profile'>View Profile</Link><br/><br/>
                 <UserLogout />
