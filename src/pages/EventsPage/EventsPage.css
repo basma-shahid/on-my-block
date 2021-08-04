@@ -8,6 +8,7 @@
     background-color: hsl(120, 33%, 77%);
     height: 100%;
     grid-column: 1/2;
+    /* margin: auto; */
 }
 
 .EventsPageRight{
