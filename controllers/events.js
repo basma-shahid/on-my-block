@@ -3,6 +3,7 @@ const User = require('../models/user')
 //creat getAll to get all events
 module.exports = {
     create,
+    eventForUsers,
     getAll
 }
 
@@ -44,3 +45,18 @@ async function getAll(req, res) {
         res.json(err);
     }
 }
+
+
+async function eventForUsers(req,res){
+    try{
+        const event =await Event.find({user:req.params._id})
+        .populate('user')
+        .exec();
+        console.log(event)
+        res.status(200).json(event);
+ 
+    } catch(err){
+        console.log(err);
+    }
+ }
+ 
