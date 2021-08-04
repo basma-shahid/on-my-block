@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Map.module.css';
 import {
   GoogleMap,
@@ -22,46 +22,80 @@ import {
 import "@reach/combobox/styles.css"
 import EventForm from '../EventForm/EventForm';
 const libraries = ["places"];
+//map width and height
 const mapContainerStyle = {
   width: "100vw",
   height: "100vh",
 }
+//center of map
 const center = {
   lat: 43.653225,
   lng: -79.383186,
 }
+// maps options 
 const options = {
   styles: mapStyles,
   disableDefaultUI: true,
   zoomControl: true,
 }
 export default function App() {
+  //put the api kep 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries
   });
+  //set hook
   const [markers, setMarkers] = React.useState([]);
   const [selected, setSelected] = React.useState(null);
-
+  //get api events to show on map 
+  useEffect(() => {
+    let jwt = localStorage.getItem('token')
+    fetch('/api/events', {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': 'Bearer ' + jwt
+      },
+    }).then(fetchResponse => fetchResponse.json())
+      .then((events) => {
+        let _events = events.filter((event) => event.lat && event.lng && event.time).map((event) => ({
+          ...event,
+          submitted: true,
+          time: new Date(event.time)
+        }))
+        setMarkers(_events)
+      })
+  }, [])
+  //to create mark when click
   const onMapClick = React.useCallback((event) => {
     setMarkers((current) => [
       ...current, {
         lat: event.latLng.lat(),
         lng: event.latLng.lng(),
         time: new Date(),
+        submitted: false,
       }
     ])
   }, []);
-
+  //map load 
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
     mapRef.current = map;
   }, [])
+  // zoom in the search location
   const panTo = React.useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(14);
   }, [])
-
+  //updateMarker find by lat and lng
+  const updateMarker = ({ name, location, lat, lng }) => {
+    let ms = [...markers];
+    let marker = ms.find((m) => m.lat === lat && m.lng === lng);
+    marker.submitted = true;
+    marker.name = name;
+    marker.location = location;
+    setMarkers(ms);
+  }
 
 
   if (loadError) return "Error loading map;";
@@ -70,7 +104,7 @@ export default function App() {
   return <div>
 
 
-    <Search panTo={panTo} onMapClick={onMapClick} />
+    <Search panTo={panTo} setMarkers={setMarkers} />
 
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
@@ -97,7 +131,12 @@ export default function App() {
           <div>
             <h2>
               Alert
-              <EventForm />           </h2>
+            </h2>
+            {/* update marker  */}
+            {selected.submitted ? <>
+              <p>Name: {selected.name}</p>
+              <p>Location: {selected.location}</p>
+            </> : <EventForm event={selected} updateMarker={updateMarker} />}
             <p>Time:{formatRelative(selected.time, new Date())}</p>
           </div>
         </InfoWindow>
@@ -107,7 +146,7 @@ export default function App() {
 }
 
 
-function Search({ panTo }) {
+function Search({ panTo, setMarkers }) {
   const {
     ready,
     value,
@@ -130,7 +169,14 @@ function Search({ panTo }) {
           const results = await getGeocode({ address });
           const { lat, lng } = await getLatLng(results[0]);
           panTo({ lat, lng });
-          <Marker position={panTo.lat, panTo.lng} />
+          setMarkers((current) => [
+            ...current, {
+              lat,
+              lng,
+              time: new Date(),
+              submitted: false,
+            }
+          ])
         } catch (error) {
           console.log("😱 Error: ", error);
         }
