@@ -2,11 +2,13 @@
 
 var Event = require('../models/event');
 
-var User = require('../models/user');
+var User = require('../models/user'); //creat getAll to get all events
+
 
 module.exports = {
   create: create,
-  eventForUsers: eventForUsers
+  eventForUsers: eventForUsers,
+  getAll: getAll
 }; //function receives the events from the browser and puts it in the db
 
 function create(req, res) {
@@ -20,6 +22,9 @@ function create(req, res) {
           return regeneratorRuntime.awrap(Event.create({
             name: req.body.name,
             location: req.body.location,
+            lat: req.body.lat,
+            lng: req.body.lng,
+            time: req.body.time,
             user: req.user._id
           }));
 
@@ -50,33 +55,62 @@ function create(req, res) {
   }, null, null, [[0, 11]]);
 }
 
-function eventForUsers(req, res) {
-  var event;
-  return regeneratorRuntime.async(function eventForUsers$(_context2) {
+function getAll(req, res) {
+  var events;
+  return regeneratorRuntime.async(function getAll$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.prev = 0;
           _context2.next = 3;
+          return regeneratorRuntime.awrap(Event.find({}));
+
+        case 3:
+          events = _context2.sent;
+          res.status(200).json(events);
+          _context2.next = 10;
+          break;
+
+        case 7:
+          _context2.prev = 7;
+          _context2.t0 = _context2["catch"](0);
+          res.json(_context2.t0);
+
+        case 10:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  }, null, null, [[0, 7]]);
+}
+
+function eventForUsers(req, res) {
+  var event;
+  return regeneratorRuntime.async(function eventForUsers$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          _context3.prev = 0;
+          _context3.next = 3;
           return regeneratorRuntime.awrap(Event.find({
             user: req.params._id
           }).populate('user').exec());
 
         case 3:
-          event = _context2.sent;
+          event = _context3.sent;
           console.log(event);
           res.status(200).json(event);
-          _context2.next = 11;
+          _context3.next = 11;
           break;
 
         case 8:
-          _context2.prev = 8;
-          _context2.t0 = _context2["catch"](0);
-          console.log(_context2.t0);
+          _context3.prev = 8;
+          _context3.t0 = _context3["catch"](0);
+          console.log(_context3.t0);
 
         case 11:
         case "end":
-          return _context2.stop();
+          return _context3.stop();
       }
     }
   }, null, null, [[0, 8]]);
