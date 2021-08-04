@@ -3,5 +3,6 @@ const router = express.Router();
 const eventCtrl = require('../../controllers/events')
 
 router.post('/', eventCtrl.create)
+router.get('/', eventCtrl.eventForUsers)
 
 module.exports = router;

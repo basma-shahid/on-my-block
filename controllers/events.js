@@ -2,7 +2,9 @@ const Event = require('../models/event')
 const User = require('../models/user')
 
 module.exports = {
-    create
+    create,
+    eventForUsers
+
 }
 
 //function receives the events from the browser and puts it in the db
@@ -27,3 +29,18 @@ async function create(req, res) {
         res.json(err);
     }
 }
+
+
+async function eventForUsers(req,res){
+    try{
+        const event =await Event.find({user:req.params._id})
+        .populate('user')
+        .exec();
+        console.log(event)
+        res.status(200).json(event);
+ 
+    } catch(err){
+        console.log(err);
+    }
+ }
+ 
