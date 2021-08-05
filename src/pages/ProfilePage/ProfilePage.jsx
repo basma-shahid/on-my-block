@@ -12,8 +12,13 @@ export default class ProfilePage extends React.Component {
         <nav>
         <UserInfo />
         </nav>
-        <h2>Name: {this.props.user.name}</h2> <br/>
+        <div className="card">
+        <h2>Name: {this.props.user.name}</h2>
+        </div> 
+        <br/>
+        <div className="card">
         <h2>Email: {this.props.user.email}</h2>
+        </div>
         <br/><br/>
         <h3>Past Events Created:</h3>
         <EventDetails user={this.props.user} />
