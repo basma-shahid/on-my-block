@@ -48,7 +48,8 @@ export default class LoginForm extends Component {
                 <form>
                 
                     <input name="email" placeholder="Enter your email" type="text" value={this.state.email} onChange={this.handleChange}  />
-                    <input name="password" placeholder="Enter your password" type="text" value={this.state.password} onChange={this.handleChange} />
+                    <input type="password" name="password" placeholder="Enter your password" value={this.state.password} onChange={this.handleChange} />
+                    <br></br>
                     <button onClick={this.handleSignIn } >Sign In</button>
                 </form>
                 <p>{this.state.error}</p>

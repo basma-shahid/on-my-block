@@ -16,3 +16,25 @@
 .btn:hover{
     background-color: rgba(0, 0, 0, 0.8);
 } 
+
+.btnlink {
+    margin: 8px 0;
+    width: 60%;
+    border-radius: 25px;
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 20px;
+    border: none;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+
+.btnlink:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+} 
+
+li {
+    text-align: center;
+    display: inline-block;
+}
