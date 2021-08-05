@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Delete from '../Delete/Delete'
 import { Route, Switch, Redirect } from 'react-router-dom';
+import ReactImageUploading from "react-images-uploading";
 
 
 export default class EventDetails extends Component{
@@ -29,20 +30,24 @@ export default class EventDetails extends Component{
     }
 
     getOneEvent = async (id) => {
+        
         try{
             let jwt = localStorage.getItem('token')
-            await fetch(`/api/${id}`
+            let fetchEventsResponse = await fetch(`/api/${id}`
             , {
-                method: 'DELETE',
+                method: 'DELETE', 
                 headers: {
                     "Content-Type": "application/json",
                     'Authorization': 'Bearer ' + jwt
                 }
             })
-            let newList = newList();
+            let newEventList = await fetchEventsResponse.json();
+            console.log("this is new list", newEventList)
+            this.setState({events: newEventList}) 
     } catch (err) {
         console.log("this is one error", err);
     }
+    
 }
 
     newList = async () => {
@@ -71,8 +76,11 @@ export default class EventDetails extends Component{
    render(){
     return (
         <div>
-            {this.state.events.map(event =>
-                <table class="cards-table">
+            {this.state.events.length ?
+
+            this.state.events.map(event =>
+
+    <table class="cards-table">
     <thead>
         <tr>
             <th>Name</th>
@@ -93,7 +101,8 @@ export default class EventDetails extends Component{
     </tbody>
 </table>
                 
-                )}
+                ) :
+                'You have no previous events' }
         </div>
     )
    }
