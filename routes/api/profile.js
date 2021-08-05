@@ -4,5 +4,6 @@ const eventCtrl = require('../../controllers/events')
 
 
 router.get('/', eventCtrl.eventForUsers)
+router.delete('/:id', eventCtrl.deleteOne)
 
 module.exports = router;
