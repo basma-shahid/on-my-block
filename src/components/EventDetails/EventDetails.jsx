@@ -57,7 +57,7 @@ export default class EventDetails extends Component{
                 details:{event.details} id: {event._id}
 
             
-                <Delete id={event._id} getOneEvent={this.getOneEvent} />
+                <Delete id={event._id} getOneEvent={this.getOneEvent} events={this.state.events} />
                 
                 </li> 
                 
