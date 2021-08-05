@@ -40,7 +40,7 @@ const options = {
 export default function App() {
   //put the api kep 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyBIuDYexzGjNhhVg6kAVlH8-U1bXo_Po_s",
     libraries
   });
   //set hook
