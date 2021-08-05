@@ -12,7 +12,7 @@ export default class App extends Component {
   }
 
   setUserInState = (incomingUserData) => {
-    this.setState({ user: incomingUserData})
+    this.setState({ user: incomingUserData })
   }
 
   // get this when we check and decode token.
@@ -23,30 +23,29 @@ export default class App extends Component {
   render() {
     return (
       <main className="App">
-        {this.state.user ? 
-        <Switch>
-          
-          <Route path='/index' render={(props) => (
-            <EventsPage {...props} user={this.state.user} />
-          )}  /> 
+        {this.state.user ?
+          <Switch>
 
-          <Route path='/profile' render={(props) => (
-            <ProfilePage {...props} user={this.state.user} />
-          )}  />
+            <Route path='/index' render={(props) => (
+              <EventsPage {...props} user={this.state.user} />
+            )} />
+            <Route path='/profile' render={(props) => (
+              <ProfilePage {...props} user={this.state.user} />
+            )} />
 
-          {/* <Route path='/' render={(props) => (
+            {/* <Route path='/' render={(props) => (
             <AuthPage {...props} />
           )}  /> */}
-          
-          <Redirect to="/index" />
-          
 
-          {/* put the all encompassing route last */}
+            <Redirect to="/index" />
 
-        </Switch>
-        : 
-        
-        <AuthPage setUserInState={this.setUserInState} />
+
+            {/* put the all encompassing route last */}
+
+          </Switch>
+          :
+
+          <AuthPage setUserInState={this.setUserInState} />
         }
 
         {/* how to set user in state for the whole app */}

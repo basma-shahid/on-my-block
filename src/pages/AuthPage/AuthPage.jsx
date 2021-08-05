@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
 import LogInForm from '../../components/LogInForm/LogInForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import Logo from '../../components/Logo/Logo';
@@ -12,32 +11,21 @@ export default class AuthPage extends Component {
     }
 
 
-    render(){
-    return(
-        <div className="AuthPage">
-            <div className="AuthPageLeft">
-            <h1 className="text" onClick={() => this.setState(
-                { showLogin: !this.state.showLogin }
-                )}>
-            {this.state.showLogin 
-            ? 
-            <>Don't have an account? <span>Register</span></>
-            :
-            <>Have an account? <span>Sign In</span></>
-            }</h1>
-            </div>
-            
-        
+    render() {
+        return (
+            <div className="AuthPage">
+                <div className="AuthPageLeft">
+                    <h1 className="text" onClick={() => this.setState(
+                        { showLogin: !this.state.showLogin }
+                    )}>
+                        {this.state.showLogin
+                            ?
+                            <>Don't have an account? <span>Register</span></>
+                            :
+                            <>Have an account? <span>Sign In</span></>
+                        }</h1>
+                </div>
 
-            <div className="AuthPageRight">
-                <Logo />
-                {this.state.showLogin 
-                ?
-                <LogInForm setUserInState={this.props.setUserInState} />
-                : 
-                <SignUpForm setUserInState={this.props.setUserInState} />
-                }
-            </div>
 
             <div className="HiddenAuth">
             <h1 onClick={() => this.setState(
@@ -52,7 +40,30 @@ export default class AuthPage extends Component {
             </div>
             
 
-            {/* <hr />
+                <div className="AuthPageRight">
+                    <Logo />
+                    {this.state.showLogin
+                        ?
+                        <LogInForm setUserInState={this.props.setUserInState} />
+                        :
+                        <SignUpForm setUserInState={this.props.setUserInState} />
+                    }
+                </div>
+
+                <div className="HiddenAuth">
+                    <h1 onClick={() => this.setState(
+                        { showLogin: !this.state.showLogin }
+                    )}>
+                        {this.state.showLogin
+                            ?
+                            <><h5>Don't have an account?</h5><span>Register</span></>
+                            :
+                            <><h5>Have an account?</h5> <span>Sign In</span></>
+                        }</h1>
+                </div>
+
+
+                {/* <hr />
             Ater user is signed in: 
             <Link to='/index' >
                 <button>View all events</button>
@@ -62,7 +73,7 @@ export default class AuthPage extends Component {
                 <button>Create an event</button>
             </Link> */}
 
-        </div>
-    )
+            </div>
+        )
     }
 }

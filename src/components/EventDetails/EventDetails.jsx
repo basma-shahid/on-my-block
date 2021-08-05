@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Delete from '../Delete/Delete'
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 
 export default class EventDetails extends Component{
@@ -26,6 +28,23 @@ export default class EventDetails extends Component{
         }
     }
 
+    getOneEvent = async (id) => {
+        try{
+            let jwt = localStorage.getItem('token')
+            await fetch(`/api/${id}`
+            , {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization': 'Bearer ' + jwt
+                }
+            }) 
+    } catch (err) {
+        console.log("this is one error", err);
+    }
+}
+
+
     componentDidMount() {
         this.getUserEvents()
     }
@@ -34,6 +53,7 @@ export default class EventDetails extends Component{
     return (
         <div>
             {this.state.events.map(event =>
+<<<<<<< HEAD
             <div> 
             <table>
             <thead>
@@ -53,6 +73,18 @@ export default class EventDetails extends Component{
                 </tr>
             </tbody>
             </table>       
+=======
+            <div>
+                <li>name:{event.name} location:{event.location} at:{event.time} on:{event.date}
+                details:{event.details} id: {event._id}
+
+            
+                <Delete id={event._id} getOneEvent={this.getOneEvent} />
+                
+                </li> 
+                
+                
+>>>>>>> 4f80bbcf1099eded474a7d374e506aa4e40172ce
             </div>
 
                 )}

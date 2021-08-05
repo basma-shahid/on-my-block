@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './UserLogout.css'
 
 class UserLogOut extends React.Component {
@@ -9,13 +8,13 @@ class UserLogOut extends React.Component {
     localStorage.clear();
     window.location.href = '/';
   }
-  
+
   render() {
-  return (
+    return (
       <div className='UserLogOut'>
         <button onClick={this.handleLogout}>Logout</button>
       </div>
-  );
+    );
   }
 }
 

@@ -39,19 +39,3 @@
     height: 210px;
 }
 
-
-@media only screen and (max-width: 768px) {
-    .EventsPageLeft{
-        display: none;
-    }
-
-    .EventsPageRight{
-        grid-column: 1/4;
-    }
-
-    .map {
-        width: "100%";
-        height: "100%";
-    }
-    
-  }
