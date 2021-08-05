@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Map from '../../components/Map/Map';
 import { Link } from 'react-router-dom';
 import { getCurrentLatLng } from '../../services/geolocation';
-
 import UserLogout from '../../components/UserLogout/UserLogout';
 import './EventsPage.css'
 

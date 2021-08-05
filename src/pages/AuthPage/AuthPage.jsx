@@ -27,6 +27,18 @@ export default class AuthPage extends Component {
                 </div>
 
 
+            <div className="HiddenAuth">
+            <h1 onClick={() => this.setState(
+                { showLogin: !this.state.showLogin }
+                )}>
+            {this.state.showLogin 
+            ? 
+            <><h5>Don't have an account?</h5><h1 className="authbtn">Register</h1></>
+            :
+            <><h5>Have an account?</h5> <button className="authbtn">Sign In</button></>
+            }</h1>
+            </div>
+            
 
                 <div className="AuthPageRight">
                     <Logo />
