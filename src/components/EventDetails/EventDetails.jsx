@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Delete from '../Delete/Delete'
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 export default class EventDetails extends Component{
     
@@ -40,7 +41,7 @@ export default class EventDetails extends Component{
     } catch (err) {
         console.log("this is one error", err);
     }
-    }
+}
 
 
     componentDidMount() {
@@ -54,8 +55,12 @@ export default class EventDetails extends Component{
             <div>
                 <li>name:{event.name} location:{event.location} at:{event.time} on:{event.date}
                 details:{event.details} id: {event._id}
+
+            
                 <Delete id={event._id} getOneEvent={this.getOneEvent} />
+                
                 </li> 
+                
                 
             </div>
                 )}
