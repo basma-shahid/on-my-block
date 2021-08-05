@@ -4,7 +4,8 @@ const User = require('../models/user')
 module.exports = {
     create,
     getAll,
-    eventForUsers
+    eventForUsers,
+    deleteOne
 }
 
 //function receives the events from the browser and puts it in the db
@@ -58,5 +59,17 @@ async function eventForUsers(req,res){
         
     } catch(err){
         console.log(err);
+    }
+}
+
+async function deleteOne(req, res){
+    try{
+        const event = await Event.findOneAndDelete({})
+        res.status(200).json({msg: 'Event was deleted successfully'})
+        console.log("this is the event:", event)
+        console.log("this is re.params", req)
+
+    } catch(err){
+        console.log(err)
     }
 }

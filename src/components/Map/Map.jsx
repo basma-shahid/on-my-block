@@ -120,7 +120,7 @@ export default function App() {
         <Marker
           key={marker.time.toISOString()}
           position={{ lat: marker.lat, lng: marker.lng }}
-          onClick={() => { setSelected(marker) }}
+          onMouseOver={() => { setSelected(marker) }}
         // icon={{url:"/.svg",scaledSize: new window.google.maps.Size(30,30), origin: new window.google.maps.Point(0,0), anchor: new window.google.maps.Poing(15,15)}}
         />))}
       {selected ? (
@@ -132,7 +132,7 @@ export default function App() {
         >
           <div>
             <h2>
-              Alert
+              
             </h2>
             {/* update marker  */}
             {selected.submitted ? <>
@@ -149,6 +149,7 @@ export default function App() {
     </GoogleMap>
   </div>
 }
+
 
 
 function Search({ panTo, setMarkers }) {
