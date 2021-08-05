@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Delete from '../Delete/Delete'
 import { Route, Switch, Redirect } from 'react-router-dom';
 
+
 export default class EventDetails extends Component{
     
 
@@ -43,6 +44,22 @@ export default class EventDetails extends Component{
     }
 }
 
+    newList = async () => {
+        try{
+            let jwt = localStorage.getItem('token')
+            await fetch(`/api/profile`
+            , {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization': 'Bearer ' + jwt
+                }
+            }) 
+    } catch (err) {
+        console.log("this is one error", err);
+    }
+    }
+
 
     componentDidMount() {
         this.getUserEvents()
@@ -52,19 +69,32 @@ export default class EventDetails extends Component{
     return (
         <div>
             {this.state.events.map(event =>
-            <div>
-                <li>name:{event.name} location:{event.location} at:{event.time} on:{event.date}
-                details:{event.details} id: {event._id}
-
-            
-                <Delete id={event._id} getOneEvent={this.getOneEvent} />
+                <table class="cards-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Details</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{event.name} </td>
+            <td>{event.location} </td>
+            <td>{event.date} </td>
+            <td>{event.time} </td>
+            <td>{event.details} </td>
+            <td><Delete id={event._id} getOneEvent={this.getOneEvent} /></td>
+        </tr>
+    </tbody>
+</table>
                 
-                </li> 
-                
-                
-            </div>
                 )}
         </div>
     )
    }
 }
+

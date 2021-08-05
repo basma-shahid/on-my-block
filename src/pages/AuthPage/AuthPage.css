@@ -28,7 +28,7 @@
     display: none;
 }
 
-span{
+.authbtn {
     margin: 8px 0;
     width: 60%;
     border-radius: 25px;
@@ -41,9 +41,9 @@ span{
 }
 
 
-span:hover {
+.authbtn:hover {
     background-color: rgba(0, 0, 0, 0.8);
-}
+} 
 
 @keyframes gradient {
     0% {
