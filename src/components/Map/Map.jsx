@@ -16,7 +16,6 @@ import {
   Combobox,
   ComboboxInput,
   ComboboxPopover,
-  ComboboxList,
   ComboboxOption,
 } from "@reach/combobox"; // npm i @reach/combobox
 import "@reach/combobox/styles.css"
@@ -186,7 +185,7 @@ function Search({ panTo, setMarkers }) {
           console.log("😱 Error: ", error);
         }
       }}>
-        <ComboboxInput value={value} onChange={(e) => {
+        <ComboboxInput className="combobox" value={value} onChange={(e) => {
           setValue(e.target.value)
         }} disabled={!ready} placeholder="Enter an address" />
         <ComboboxPopover>
