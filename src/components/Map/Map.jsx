@@ -24,8 +24,8 @@ import EventForm from '../EventForm/EventForm';
 const libraries = ["places"];
 //map width and height
 const mapContainerStyle = {
-  width: "100vw",
-  height: "100vh",
+  width: "67vw",
+  height: "96vh",
 }
 //center of map
 const center = {
@@ -132,7 +132,7 @@ export default function App() {
         >
           <div>
             <h2>
-              Alert
+              Event Information:
             </h2>
             {/* update marker  */}
             {selected.submitted ? <>
