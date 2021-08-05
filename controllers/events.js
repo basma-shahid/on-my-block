@@ -3,7 +3,8 @@ const User = require('../models/user')
 //creat getAll to get all events
 module.exports = {
     create,
-    getAll
+    getAll,
+    eventForUsers
 }
 
 //function receives the events from the browser and puts it in the db
@@ -42,5 +43,20 @@ async function getAll(req, res) {
         res.status(200).json(events)
     } catch (err) {
         res.json(err);
+    }
+}
+
+async function eventForUsers(req,res){
+    try{
+        const event = await Event.find({user: req.user._id})
+        .populate('user')
+        .exec();
+        console.log("this is the", event)
+        console.log("this is users id:", req.user._id)
+        res.status(200).json(event);
+        
+        
+    } catch(err){
+        console.log(err);
     }
 }
