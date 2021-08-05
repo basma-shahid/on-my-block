@@ -16,7 +16,6 @@ import {
   Combobox,
   ComboboxInput,
   ComboboxPopover,
-  ComboboxList,
   ComboboxOption,
 } from "@reach/combobox"; // npm i @reach/combobox
 import "@reach/combobox/styles.css"
@@ -88,7 +87,7 @@ export default function App() {
     mapRef.current.setZoom(14);
   }, [])
   //updateMarker find by lat and lng
-  const updateMarker = ({ name, location, lat, lng, date, details}) => {
+  const updateMarker = ({ name, location, lat, lng, date, details }) => {
     let ms = [...markers];
     let marker = ms.find((m) => m.lat === lat && m.lng === lng);
     marker.submitted = true;
