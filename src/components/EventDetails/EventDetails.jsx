@@ -38,7 +38,8 @@ export default class EventDetails extends Component{
                     "Content-Type": "application/json",
                     'Authorization': 'Bearer ' + jwt
                 }
-            }) 
+            })
+            let newList = newList();
     } catch (err) {
         console.log("this is one error", err);
     }
@@ -47,17 +48,19 @@ export default class EventDetails extends Component{
     newList = async () => {
         try{
             let jwt = localStorage.getItem('token')
-            await fetch(`/api/profile`
-            , {
+            let fetchEventsResponse = await fetch("/api/events", {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
                     'Authorization': 'Bearer ' + jwt
                 }
-            }) 
-    } catch (err) {
-        console.log("this is one error", err);
-    }
+            })
+            let newEvents = await fetchEventsResponse.json();
+            console.log("this is the user's event", newEvents)
+            this.setState({events: newEvents})
+        }catch(err){
+            console.log('error', err)
+        }
     }
 
 
