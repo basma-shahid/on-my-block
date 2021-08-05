@@ -58,6 +58,7 @@ export default class SignUpForm extends Component {
                     
                         <input name="confirm" type="text" placeholder="Re-enter password" value={this.state.confirm} onChange={this.handleChange} />
                     
+                    <br></br>
                     <button onClick={this.handleSignUp} disabled={disable} >Sign Up</button>
                 </form>
 

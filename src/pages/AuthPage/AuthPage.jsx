@@ -20,9 +20,9 @@ export default class AuthPage extends Component {
                     )}>
                         {this.state.showLogin
                             ?
-                            <>Don't have an account? <span>Register</span></>
+                            <>Don't have an account? <button>Register</button></>
                             :
-                            <>Have an account? <span>Sign In</span></>
+                            <>Have an account? <button>Sign In</button></>
                         }</h1>
                 </div>
 
@@ -33,9 +33,9 @@ export default class AuthPage extends Component {
                 )}>
             {this.state.showLogin 
             ? 
-            <><h5>Don't have an account?</h5><h1 className="authbtn">Register</h1></>
+            <><h5>Don't have an account?</h5><button>Register</button></>
             :
-            <><h5>Have an account?</h5> <button className="authbtn">Sign In</button></>
+            <><h5>Have an account?</h5> <button>Sign In</button></>
             }</h1>
             </div>
             
