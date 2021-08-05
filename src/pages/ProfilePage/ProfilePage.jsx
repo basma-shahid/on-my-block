@@ -1,6 +1,8 @@
 import './ProfilePage.css';
 import React from 'react';
 import UserInfo from '../../components/UserInfo/UserInfo';
+import EventDetails from '../../components/EventDetails/EventDetails';
+
 
 export default class ProfilePage extends React.Component {
 
@@ -11,8 +13,10 @@ export default class ProfilePage extends React.Component {
         <h2>Email: {this.props.user.email}</h2>
         <br/><br/>
         <UserInfo />
+        <EventDetails user={this.props.user} />
         <div></div>
       </main>
+
     )
   }
 }
