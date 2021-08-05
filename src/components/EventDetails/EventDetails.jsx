@@ -33,14 +33,17 @@ export default class EventDetails extends Component{
         
         try{
             let jwt = localStorage.getItem('token')
-            await fetch(`/api/${id}`
+            let fetchEventsResponse = await fetch(`/api/${id}`
             , {
-                method: 'DELETE',
+                method: 'DELETE', 
                 headers: {
                     "Content-Type": "application/json",
                     'Authorization': 'Bearer ' + jwt
                 }
-            }) 
+            })
+            let newEventList = await fetchEventsResponse.json();
+            console.log("this is new list", newEventList)
+            this.setState({events: newEventList}) 
     } catch (err) {
         console.log("this is one error", err);
     }
@@ -74,7 +77,7 @@ export default class EventDetails extends Component{
             {this.state.events.length ?
 
             this.state.events.map(event =>
-                
+
     <table class="cards-table">
     <thead>
         <tr>
