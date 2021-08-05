@@ -5,11 +5,11 @@ import UserLogout from '../UserLogout/UserLogout';
 
 const UserInfo = (props) => {
   return (
-      <div>
-        <Link className="btn" to='/index'>Home</Link>
+      <li id="container">
+        <Link className="btnlink" to='/index'>Home</Link>
         <br/><br/>
         <UserLogout />
-      </div>
+      </li>
   );
   }
 

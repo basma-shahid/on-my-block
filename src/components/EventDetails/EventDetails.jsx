@@ -80,7 +80,6 @@ export default class EventDetails extends Component{
         <tr>
             <th>Name</th>
             <th>Location</th>
-            <th>Date</th>
             <th>Time</th>
             <th>Details</th>
             <th>Delete</th>
@@ -90,7 +89,6 @@ export default class EventDetails extends Component{
         <tr>
             <td>{event.name} </td>
             <td>{event.location} </td>
-            <td>{event.date} </td>
             <td>{event.time} </td>
             <td>{event.details} </td>
             <td><Delete id={event._id} getOneEvent={this.getOneEvent} /></td>
