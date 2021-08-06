@@ -35,7 +35,6 @@ export default class EventsPage extends Component{
             </div>
             <div className="EventsPageRight">
                 <Map className="map" lat={this.state.lat} lng={this.state.lng}/>
-                
             </div>
         </div>
     )
