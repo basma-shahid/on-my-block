@@ -5,7 +5,7 @@ export default function Delete(props) {
     
     return(
         <div>
-        <input onClick={()=>props.getOneEvent(`${props.id}`) }  type="submit" value="delete"></input>
+        <input className="btn" onClick={()=>props.getOneEvent(`${props.id}`) }  type="submit" value="Delete"></input>
         </div>
     )
 }

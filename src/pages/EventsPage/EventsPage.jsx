@@ -27,6 +27,7 @@ export default class EventsPage extends Component{
 
                 <img className="logo-no-text" src="logo1.svg"/>
                 <h1>Welcome, {this.props.user.name}!</h1>
+                <br/><br/>
                 <Link className="btn" to='/profile'>View Profile</Link><br/><br/>
                 <UserLogout />
                 
@@ -34,7 +35,6 @@ export default class EventsPage extends Component{
             </div>
             <div className="EventsPageRight">
                 <Map className="map" lat={this.state.lat} lng={this.state.lng}/>
-                
             </div>
         </div>
     )

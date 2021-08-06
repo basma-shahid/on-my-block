@@ -129,7 +129,7 @@ export default function App() {
             setSelected(null);
           }}
         >
-          <div>
+          <div className="info">
             <h2>
 
               

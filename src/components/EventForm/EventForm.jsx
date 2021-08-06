@@ -79,8 +79,9 @@ export default class EventForm extends Component {
 
                     <input placeholder="enter event address" type="text" name="location" value={this.state.location} onChange={this.handleChange} />
                     {/* can we get the address from the searchbar and put it here */}
-                    <input placeholder="enter date and time of event" type="datetime-local" value={this.state.date} name="date" onChange={this.handleChange} />
+                    <input className="date" placeholder="enter date and time of event" type="datetime-local" value={this.state.date} name="date" onChange={this.handleChange} />
                     <input placeholder="enter details of the event" type="text" name="details" value={this.state.details} onChange={this.handleChange} />
+                    <br></br>
                     <button onClick={this.addEvent}>Add event</button>
                 </form>
             </>
