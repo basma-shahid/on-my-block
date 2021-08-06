@@ -67,12 +67,12 @@ async function deleteOne(req, res){
     try{
         // let allevent = await Event.find({});
         // console.log("this is all", allevent)
-        let event = await Event.findOneAndDelete({_id: req.params.id})
+        let event = await Event.findByIdAndDelete({_id: req.params.id})
         
         // console.log("this is the event:", event)
         console.log("this is re.params", req.params.id)
         console.log("this si te event", event)
-        let neweventlist = await Event.find({})
+        let neweventlist = await Event.find({user: req.user._id})
         console.log("this is the new", neweventlist)
         res.status(200).json(neweventlist)
         
