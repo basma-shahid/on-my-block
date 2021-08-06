@@ -20,6 +20,7 @@ import {
 } from "@reach/combobox"; // npm i @reach/combobox
 import "@reach/combobox/styles.css"
 import EventForm from '../EventForm/EventForm';
+import AnotherCom from '../../components/AnotherCom/AnotherCom'
 const libraries = ["places"];
 //map width and height
 const mapContainerStyle = {
@@ -133,7 +134,7 @@ export default function App() {
             <h2>
 
               
-              Event Information:
+              Information:
             </h2>
             {/* update marker  */}
             {selected.submitted ? <>
@@ -141,7 +142,7 @@ export default function App() {
               <p>Location: {selected.location}</p>
               <p>date: {selected.date}</p>
               <p>details: {selected.details}</p>
-              <p>created by: {selected.user}</p>
+              <p>created by: { <AnotherCom id={selected.user} /> }</p>
             </> : <EventForm event={selected} updateMarker={updateMarker} />}
             <p>Created: {formatRelative(selected.time, new Date())}</p>
           </div>
@@ -150,6 +151,8 @@ export default function App() {
     </GoogleMap>
   </div>
 }
+
+
 
 
 
@@ -200,3 +203,5 @@ function Search({ panTo, setMarkers }) {
       </Combobox>
     </div>)
 }
+
+

@@ -14,7 +14,7 @@ export default class EventDetails extends Component{
     getUserEvents = async () => {
         try{
             let jwt = localStorage.getItem('token')
-            let fetchEventsResponse = await fetch("/api", {
+            let fetchEventsResponse = await fetch("/api/profile", {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",

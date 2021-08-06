@@ -8,7 +8,8 @@ const SALT_ROUNDS = 6;
 
 module.exports ={
     create,
-    login
+    login,
+    find
 };
 
 
@@ -38,4 +39,11 @@ async function login(req, res) {
     } catch (err) {
         res.status(400).json('Wrong Credentials');
     }
+}
+
+async function find(req, res){
+    const person = await User.findById(req.params.id);
+        console.log(person.name)
+        res.status(200).json(person.name)
+     
 }
