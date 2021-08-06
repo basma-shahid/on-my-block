@@ -23,7 +23,8 @@ Here are some screenshots from the Figma wireframe:
 <img src="readme-images/wireframe.png">
 
 ### ERD:
-You can find the ERD [here.](https://app.diagrams.net/#G1k9lAEy7CtSg6BBFd6tU-4RwoTOY9jARH)
+This was our initial ERD: 
+<img src="readme-images/erd.png">
 
 ### Trello:
 You can find the Trello board [here.](https://trello.com/b/uxz9MIqA/on-my-block)
