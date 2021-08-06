@@ -6,7 +6,7 @@
 Wondering if there's anything interesting happening on your block? From pop up restaurants to trade shows and expos, find out what events are being held around your city with On My Block! Not only that, if you're hosting an event of your own, you can create and display it for others to see and attend so you can get more attendance!
 
 ## Deployed App:
-You can find the deployed app [here.](https://onmyblock-brim.herokuapp.com/)
+You can find the deployed app [here.](https://onmyblockrtw.herokuapp.com/)
 
 ## Collaborators:
 - Basma Shahid
