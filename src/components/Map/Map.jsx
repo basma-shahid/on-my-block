@@ -87,7 +87,7 @@ export default function App() {
     mapRef.current.setZoom(14);
   }, [])
   //updateMarker find by lat and lng
-  const updateMarker = ({ name, location, lat, lng, date, details }) => {
+  const updateMarker = ({ name, location, lat, lng, date, details, firstname }) => {
     let ms = [...markers];
     let marker = ms.find((m) => m.lat === lat && m.lng === lng);
     marker.submitted = true;
@@ -95,6 +95,7 @@ export default function App() {
     marker.location = location;
     marker.date = date;
     marker.details = details;
+    marker.firstname = firstname;
     setMarkers(ms);
   }
 
@@ -137,11 +138,11 @@ export default function App() {
             </h2>
             {/* update marker  */}
             {selected.submitted ? <>
-              <p>Name: {selected.name}</p>
+              <p>Event Name: {selected.name}</p>
               <p>Location: {selected.location}</p>
-              <p>date: {selected.date}</p>
-              <p>details: {selected.details}</p>
-              <p>created by: {selected.user}</p>
+              <p>Date: {selected.date}</p>
+              <p>Details: {selected.details}</p>
+              <p>Created By: {selected.firstname}</p>
             </> : <EventForm event={selected} updateMarker={updateMarker} />}
             <p>Created: {formatRelative(selected.time, new Date())}</p>
           </div>

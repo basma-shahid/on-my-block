@@ -12,6 +12,8 @@ const eventSchema = new Schema({
     //this is the date for the event if applicable
     details: String,
     //this is the detail for the event
+    firstname: String,
+    //this is the name of the user who created the event
     user: { type: Schema.Types.ObjectId, ref: 'User' }
     //this event having one user that created it
 }, {
