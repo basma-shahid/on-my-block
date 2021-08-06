@@ -10,7 +10,8 @@ export default class EventForm extends Component {
             name: "",
             location: "",
             date: "",
-            details: ""
+            details: "",
+            firstname: ""
 
         };
     }
@@ -33,7 +34,8 @@ export default class EventForm extends Component {
                     lng: this.props.event.lng,
                     time: this.props.event.time,
                     date: this.state.date,
-                    details: this.state.details
+                    details: this.state.details,
+                    firstname: this.state.firstname
                 })
                 // send the body object to server
 
@@ -45,14 +47,16 @@ export default class EventForm extends Component {
                 lat: this.props.event.lat,
                 lng: this.props.event.lng,
                 date: this.state.date,
-                details: this.state.details
+                details: this.state.details,
+                firstname: this.state.firstname
             });
             // if the event was sent over without errors, set state to empty
             this.setState({
                 name: "",
                 location: "",
                 date: "",
-                details: ""
+                details: "",
+                firstname: ""
             })
         } catch (err) {
             console.error("Error:", err)
@@ -81,6 +85,7 @@ export default class EventForm extends Component {
                     {/* can we get the address from the searchbar and put it here */}
                     <input className="date" placeholder="enter date and time of event" type="datetime-local" value={this.state.date} name="date" onChange={this.handleChange} />
                     <input placeholder="enter details of the event" type="text" name="details" value={this.state.details} onChange={this.handleChange} />
+                    <input placeholder="enter your first name" type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange} />
                     <br></br>
                     <button onClick={this.addEvent}>Add event</button>
                 </form>
