@@ -44,7 +44,7 @@ You can find the Trello board [here.](https://trello.com/b/uxz9MIqA/on-my-block)
 - Node JS
 - Google Maps API
 
-## Planning for Future Enhancement:
+## Plans for Future Enhancement:
 * Allow users to click on an event and choose whether they want to attend the event or not.
 * Add categories to events and let users search up different events based on a particular category.
 * Let users view other users' profiles.
