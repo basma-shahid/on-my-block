@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import LogInForm from '../../components/LogInForm/LogInForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
-import Logo from '../../components/Logo/Logo';
 import './AuthPage.css'
 
 export default class AuthPage extends Component {
@@ -41,7 +40,6 @@ export default class AuthPage extends Component {
             
 
                 <div className="AuthPageRight">
-                    <Logo />
                     {this.state.showLogin
                         ?
                         <LogInForm setUserInState={this.props.setUserInState} />

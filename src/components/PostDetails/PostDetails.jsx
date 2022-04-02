@@ -4,36 +4,36 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import ReactImageUploading from "react-images-uploading";
 
 
-export default class EventDetails extends Component{
+export default class PostDetails extends Component{
     
 
     state = {
-        events: []
+        posts: []
     }
 
-    getUserEvents = async () => {
+    getUserPosts = async () => {
         try{
             let jwt = localStorage.getItem('token')
-            let fetchEventsResponse = await fetch("/api", {
+            let fetchPostsResponse = await fetch("/api", {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
                     'Authorization': 'Bearer ' + jwt
                 }
             })
-            let allEvents = await fetchEventsResponse.json();
-            console.log("this is the user's event", allEvents)
-            this.setState({events: allEvents})
+            let allPosts = await fetchPostsResponse.json();
+            console.log("this is the user's post", allPosts)
+            this.setState({posts: allPosts})
         }catch(err){
             console.log('error', err)
         }
     }
 
-    getOneEvent = async (id) => {
+    getOnePost = async (id) => {
         
         try{
             let jwt = localStorage.getItem('token')
-            let fetchEventsResponse = await fetch(`/api/${id}`
+            let fetchPostsResponse = await fetch(`/api/${id}`
             , {
                 method: 'DELETE', 
                 headers: {
@@ -41,28 +41,28 @@ export default class EventDetails extends Component{
                     'Authorization': 'Bearer ' + jwt
                 }
             })
-            let newEventList = await fetchEventsResponse.json();
-            console.log("this is new list", newEventList)
-            this.setState({events: newEventList}) 
+            let newPostList = await fetchPostsResponse.json();
+            console.log("this is new list", newPostList)
+            this.setState({posts: newPostList}) 
     } catch (err) {
         console.log("this is one error", err);
     }
     
 }
 
-    newList = async () => {
+    newPostList = async () => {
         try{
             let jwt = localStorage.getItem('token')
-            let fetchEventsResponse = await fetch("/api/events", {
+            let fetchPostsResponse = await fetch("/api/posts", {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
                     'Authorization': 'Bearer ' + jwt
                 }
             })
-            let newEvents = await fetchEventsResponse.json();
-            console.log("this is the user's event", newEvents)
-            this.setState({events: newEvents})
+            let newPosts = await fetchPostsResponse.json();
+            console.log("this is the user's post", newPosts)
+            this.setState({posts: newPosts})
         }catch(err){
             console.log('error', err)
         }
@@ -70,41 +70,39 @@ export default class EventDetails extends Component{
 
 
     componentDidMount() {
-        this.getUserEvents()
+        this.getUserPosts()
     }
 
    render(){
     return (
         <div>
-            {this.state.events.length ?
+            {this.state.posts.length ?
 
-            this.state.events.map(event =>
+            this.state.posts.map(post =>
 
     <table class="cards-table">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Time</th>
-            <th>Details</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Categories</th>
             <th>Created By</th>
             <th>Delete</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>{event.name} </td>
-            <td>{event.location} </td>
-            <td>{event.time} </td>
-            <td>{event.details} </td>
-            <td>{event.firstname} </td>
-            <td><Delete id={event._id} getOneEvent={this.getOneEvent} /></td>
+            <td>{post.title} </td>
+            <td>{post.description} </td>
+            <td>{post.categories} </td>
+            <td>{post.firstname} </td>
+            <td><Delete id={post._id} getOnePost={this.getOnePost} /></td>
         </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
                 
                 ) :
-                'You have no previous events' }
+                'There are no previous posts' }
         </div>
     )
    }
