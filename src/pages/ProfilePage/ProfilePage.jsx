@@ -1,7 +1,7 @@
 import './ProfilePage.css';
 import React from 'react';
 import UserInfo from '../../components/UserInfo/UserInfo';
-import PostDetails from '../../components/PostDetails/PostDetails';
+import EventDetails from '../../components/EventDetails/EventDetails';
 
 
 export default class ProfilePage extends React.Component {
@@ -20,8 +20,8 @@ export default class ProfilePage extends React.Component {
         <h2>Email: {this.props.user.email}</h2>
         </div>
         <br/><br/>
-        <h3>Past Posts Created:</h3>
-        <PostDetails user={this.props.user} />
+        <h3>Past Events Created:</h3>
+        <EventDetails user={this.props.user} />
         <div></div>
       </main>
 

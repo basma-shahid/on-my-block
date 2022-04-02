@@ -19,9 +19,9 @@ const userSchema = new Schema({
         minLength: 3,
         required: true
     },   
-    posts: [
+    events: [
         {type: Schema.Types.ObjectId,
-        ref: 'Post'}
+        ref: 'Event'}
     ], //this user having many events that they created
 }, {
     timestamps: true,

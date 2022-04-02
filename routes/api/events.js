@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const eventCtrl = require('../../controllers/events')
-
-
-router.get('/', eventCtrl.eventForUsers)
-router.delete('/:id', eventCtrl.deleteOne)
+//creat gitAll router
+router.post('/', eventCtrl.create)
+router.get('/', eventCtrl.getAll)
 
 module.exports = router;
